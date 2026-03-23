@@ -1,19 +1,16 @@
 "use client"
+import { createContext, useState, type ReactNode, type Dispatch, type SetStateAction } from "react"
 
-import { createContext, ReactNode, useState } from "react"
 
-type HookProviderType = {
-    children : ReactNode
-}
 export const HookContext = createContext()
-export default function HookProvider({ children }: HookProviderType){
-    const [search,setSearch] = useState("")
-    const data={
+
+export function HookProvider({ children }: { children: ReactNode }) {
+    const [search, setSearch] = useState("")
+    const data = {
         search,
         setSearch
-        
     }
-    return(
+    return (
         <HookContext.Provider value={data}>
             {children}
         </HookContext.Provider>
