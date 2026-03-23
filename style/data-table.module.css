@@ -1,0 +1,50 @@
+.tableCard {
+  margin-top: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tableRoot {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+.headerRow {
+  background: rgb(147, 139, 189);
+}
+
+.headCell {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
+}
+
+.headCell:last-child {
+  border-right: none;
+}
+
+.bodyRow:hover {
+  background: #edf3ff;
+}
+
+.bodyCell {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-top: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
+}
+
+.bodyCell:last-child {
+  border-right: none;
+}
+
+.emptyCell {
+  height: 80px;
+  text-align: center;
+  font-weight: 500;
+}

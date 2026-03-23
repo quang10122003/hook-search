@@ -1,0 +1,13 @@
+.searchbox{
+    justify-content: center;
+}
+.searchbox__input{
+    width: 50%; 
+    height: 30px;
+    font-size: 15px;
+    padding-left: 15px;
+}
+.listHook{
+    width: 550px;
+    margin: 22px auto 0;
+}

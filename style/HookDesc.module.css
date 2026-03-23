@@ -1,0 +1,18 @@
+.hookDesc{
+    flex-direction:  column;
+    align-items: center;
+    background-color: rgba(218, 190, 190, 0.184);
+    padding: 40px 40px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+.hookDesc__title{
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+.hookDesc__desc{
+    width: 100%;
+    text-align: left;
+    line-height: 1.6;
+    word-break: break-word;
+}
