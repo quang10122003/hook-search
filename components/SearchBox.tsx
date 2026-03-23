@@ -1,19 +1,18 @@
 "use client"
+import type { ChangeEvent } from "react"
 import { Input } from "./ui/input"
 import styles from "../style/Input.module.css"
 import { DataTable } from "./data-table"
 import { columns } from "./columns"
-import { useContext } from "react"
-import {HookContext} from "../context/HookContext"
 import { filterHooks } from "@/app/action"
-export default function InputHook() {
-  const { search, setSearch } = useContext(HookContext)
+import { InputHookType } from "@/types/InputHookType"
 
+export default function InputHook({ search, setSearch, setSelectHook }: InputHookType) {
   const filteredHooks = filterHooks(search)
 
-  function searchaAction(e){
+  function searchaAction(e: ChangeEvent<HTMLInputElement>) {
     setSearch(e.target.value)
-    
+    setSelectHook(null)
   }
 
   return (
@@ -23,11 +22,11 @@ export default function InputHook() {
           className={styles.searchbox__input}
           placeholder="nhap ten hook"
           value={search}
-          onChange={(e) => searchaAction(e)}
+          onChange={searchaAction}
         />
       </div>
       <div className={styles.listHook}>
-        <DataTable columns={columns} data={filteredHooks} />
+        <DataTable setSelectHook={setSelectHook} columns={columns} data={filteredHooks} />
       </div>
     </>
 

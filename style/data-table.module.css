@@ -24,10 +24,6 @@
   border-right: 1px solid #cbd5e1;
 }
 
-.headCell:last-child {
-  border-right: none;
-}
-
 .bodyRow:hover {
   background: #edf3ff;
 }

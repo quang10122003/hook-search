@@ -4,51 +4,93 @@ export const hooks: HookType[] = [
     {
         id: "use-state",
         name: "useState",
-        desc: "Quản lý state trong functional component."
+        desc: "quản lý các state cơ bản trong react gồm 1 mảng [state, setState]",
+        code: `const [count, setCount] = useState(0);
+
+return (
+  <button onClick={() => setCount(count + 1)}>
+    {count}
+  </button>
+);`
     },
     {
         id: "use-effect",
         name: "useEffect",
-        desc: "Xử lý side effects như fetch data, DOM manipulation."
+        desc: "là 1 hàm call back tự khởi chạy khi tải trang, unmount hoặc theo dependency",
+        code: `useEffect(() => {
+  console.log("Component mounted");
+
+  return () => {
+    console.log("Cleanup");
+  };
+}, []);`
     },
     {
         id: "use-context",
         name: "useContext",
-        desc: "Truy cập dữ liệu từ Context mà không cần props drilling."
+        desc: "cho phép tạo 1 kho lưu trữ chung mà không cần truyền props",
+        code: `const value = useContext(MyContext);
+
+return <div>{value}</div>;`
     },
     {
         id: "use-ref",
         name: "useRef",
-        desc: "Giữ giá trị mutable hoặc tham chiếu tới DOM element."
+        desc: "tạo tham chiếu đến DOM",
+        code: `const inputRef = useRef<HTMLInputElement>(null);
+
+const focusInput = () => {
+  inputRef.current?.focus();
+};`
     },
     {
         id: "use-memo",
         name: "useMemo",
-        desc: "Tối ưu hiệu năng bằng cách memo hóa giá trị."
+        desc: "tối ưu bằng cách memo giá trị",
+        code: `const expensiveValue = useMemo(() => {
+  return computeExpensiveValue(a, b);
+}, [a, b]);`
     },
     {
         id: "use-callback",
         name: "useCallback",
-        desc: "Memo hóa function để tránh re-render không cần thiết."
+        desc: "tối ưu function để tránh re-render",
+        code: `const handleClick = useCallback(() => {
+  console.log("clicked");
+}, []);`
     },
     {
         id: "use-reducer",
         name: "useReducer",
-        desc: "Quản lý state phức tạp với reducer pattern."
+        desc: "quản lý state phức tạp",
+        code: `const [state, dispatch] = useReducer(reducer, initialState);
+
+dispatch({ type: "increment" });`
     },
     {
         id: "use-layout-effect",
         name: "useLayoutEffect",
-        desc: "Giống useEffect nhưng chạy đồng bộ sau DOM update."
+        desc: "chạy đồng bộ sau DOM update",
+        code: `useLayoutEffect(() => {
+  console.log("Runs before paint");
+}, []);`
     },
     {
         id: "use-imperative-handle",
         name: "useImperativeHandle",
-        desc: "Tùy chỉnh ref được expose từ component."
+        desc: "tùy chỉnh ref expose",
+        code: `useImperativeHandle(ref, () => ({
+  focus: () => {
+    inputRef.current?.focus();
+  }
+}));`
     },
     {
         id: "use-id",
         name: "useId",
-        desc: "Tạo id duy nhất ổn định cho accessibility."
+        desc: "tạo id unique",
+        code: `const id = useId();
+
+return <label htmlFor={id}>Name</label>;`
     }
 ];
