@@ -1,0 +1,13 @@
+.authen{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+.authen__left{
+    border-right: 1px solid rgb(231, 221, 221);
+
+}
+.authen__right{
+    background-color: rgba(233, 233, 233, 0.384);
+    max-height: 90vh;
+
+}

@@ -1,0 +1,37 @@
+.tab {
+    width: 100%;
+    padding: 10px;
+}
+
+.tab__list {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+}
+
+.tab__content {
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    padding: 8px 12px;
+    line-height: 1.4;
+    white-space: normal;
+    background-color: white;
+    font-size: 14px;
+}
+.tab__content[data-state="active"]{
+    background-color: rgb(222, 222, 222);
+}
+
+.tab__card {
+    width: 100%;
+    height: 100%;
+}
+
+.tab__card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

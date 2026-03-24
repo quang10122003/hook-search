@@ -1,0 +1,60 @@
+.authentication{
+    width: 100%;
+}
+.authentication__title{
+    font-size: 24px;
+    margin: 15px auto;
+    text-align: center;
+}
+.authentication__desc{
+    display: block;
+    padding-left: 40px;
+    width: 90%;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+.authentication__tableTitle{
+    display: block;
+    padding-left: 40px;
+    width: 90%;
+    font-size: 14px;
+    word-wrap: break-word;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.authentication__table{
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.authentication__tableHead{
+    background-color: #f2f2f2;
+}
+
+.authentication__tableRow:nth-child(even){
+    background-color: #fafafa;
+}
+
+.authentication__tableHeadCell{
+    border: 1px solid #d6d6d6;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    
+}
+
+.authentication__tableCell{
+    border: 1px solid #d6d6d6;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    word-break: break-word;
+  
+}
+

@@ -4,19 +4,22 @@
     background-color: rgba(218, 190, 190, 0.184);
     padding: 40px 40px;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 20px auto 10px;
+    width: 80%;
 }
 .hookDesc__title{
     font-size: 22px;
     margin-bottom: 12px;
 }
 .hookDesc__desc{
-    width: 100%;
+    font-size: 14px;
+    width: 60%;
     text-align: left;
     line-height: 1.6;
     word-break: break-word;
 }
 .hookDesc__blockcode{
+    font-size: 14px;
     background-color: #1e1e1eb9;
     height: fit-content;
     width: 60%;
@@ -25,4 +28,5 @@
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
+   
 }
