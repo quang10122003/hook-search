@@ -1,8 +1,8 @@
 import { LinePropsType } from "@/types/LinePropsType";
-
-function Line({ children,active, done, id, customStyle,x1,x2,y1,y2}: LinePropsType) {
+import styles from "../../style/lineStyle.module.css"
+export function Line({ children,active, done, id, customStyle,x1,x2,y1,y2}: LinePropsType) {
     return (
-        <svg width="120" height="40" style={ customStyle }>
+        <svg width="100%" height="40" style={{ ...customStyle, overflow: "visible" }}>
             <defs>
                 <marker
                     id={id}
@@ -24,14 +24,14 @@ function Line({ children,active, done, id, customStyle,x1,x2,y1,y2}: LinePropsTy
                 stroke={done ? "green" : "gray"}
                 strokeWidth="2"
                 markerEnd={`url(#${id})`}
-                className={active ? "flow" : ""}
+                className={`${active ? styles.flow : ""}`}
 
             />
             <text
-                x="50"
-                y="15"
+                x="50%"
+                y="24"
                 textAnchor="middle"
-                fontSize="12"
+                fontSize="13px"
             >
                 {children}
             </text>

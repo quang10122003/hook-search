@@ -1,0 +1,29 @@
+.boxflow{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 80vh;
+    justify-content: space-around;
+    padding: 20px 200px;
+    gap: 10px;
+}
+
+.boxflow__lines{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 12px;
+}
+.boxflex__button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+}
+.boxflex__button .buton{
+    width: 150px;
+    height: 30px;
+    margin: 20px 0;
+}
