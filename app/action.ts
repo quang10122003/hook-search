@@ -1,8 +1,12 @@
 import { hooks } from "@/data/data";
-import { Line } from './../components/authen/Line';
 
 export function filterHooks(search: string) {
     return hooks.filter((hook) =>
         hook.name.toLowerCase().includes(search.toLowerCase())
     )
 }
+
+export const getLineState = (step: number, activeFrom: number, doneFrom: number) => ({
+    isActive: step === activeFrom,
+    isDone: step >= doneFrom,
+});

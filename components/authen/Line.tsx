@@ -1,9 +1,9 @@
+import { getLineState } from "@/app/action";
 import styles from "../../style/lineStyle.module.css";
 import { LinePropsType } from "@/types/LinePropsType";
 export function Line({ children, id, customStyle, x1, x2, step, activeFrom, doneFrom }: LinePropsType) {
 
-    const isActive = step === activeFrom;
-    const isDone = step >= doneFrom;
+    const { isActive, isDone } = getLineState(step,activeFrom,doneFrom)
 
 
     const strokeColor = isDone? "#16a34a" : (isActive ? "#2563eb"  : "#9ca3af")
