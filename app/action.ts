@@ -1,4 +1,4 @@
-import { hooks } from "@/data/hooks";
+import { hooks } from "@/data/data";
 import { Line } from './../components/authen/Line';
 
 export function filterHooks(search: string) {

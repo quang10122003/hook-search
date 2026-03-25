@@ -1,44 +1,5 @@
 ﻿import styles from "../../style/Authentication.module.css"
-
-const authencation = [
-    {
-        method: "Password",
-        description: "User enters username and password",
-        advantages: "Simple, easy to implement",
-        disadvantages: "Low security if weak password",
-    },
-    {
-        method: "JWT Token",
-        description: "Token-based authentication",
-        advantages: "Stateless, scalable",
-        disadvantages: "Hard to revoke token",
-    },
-    {
-        method: "Session",
-        description: "Server stores session",
-        advantages: "Easy to manage, revoke",
-        disadvantages: "Not scalable (server memory)",
-    },
-    {
-        method: "OAuth",
-        description: "Login via Google/Facebook",
-        advantages: "No password needed",
-        disadvantages: "Depend on third-party",
-    },
-    {
-        method: "2FA",
-        description: "Password + OTP",
-        advantages: "High security",
-        disadvantages: "More steps for user",
-    },
-    {
-        method: "Biometric",
-        description: "Fingerprint / Face ID",
-        advantages: "Very secure, convenient",
-        disadvantages: "Requires hardware",
-    },
-]
-
+import { authencation } from "@/data/data"
 export default function Authentication() {
     return (
         <div className={styles.authentication}>
@@ -60,7 +21,7 @@ export default function Authentication() {
                 </thead>
 
                 <tbody>
-                    {authencation.map((item , index) => (
+                    {authencation.map((item, index) => (
                         <tr key={index}>
                             <td className={styles.authentication__tableCell}>{item.method}</td>
                             <td className={styles.authentication__tableCell}>{item.description}</td>
