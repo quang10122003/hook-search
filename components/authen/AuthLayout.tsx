@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar"
 import Authentication from "./Authentication"
 import Authorization from "./Authorization"
 import AuthenticationFlow from "./AuthenticationFlow."
-// import AuthorizationFlow from "./AuthorizationFlow"
+import AuthorizationFlow from "./AuthorizationFlow"
 export default function AuthenLayout() {
     const [menuState, setmenuState] = useState("authencation")
     console.log(menuState)
@@ -17,7 +17,7 @@ export default function AuthenLayout() {
                 {menuState === "authencation" && <Authentication />}
                 {menuState === "authorization" && <Authorization />}
                 {menuState === "authencationFlow" && <AuthenticationFlow />}
-                {/* {menuState === "authorizationFlow" && <AuthorizationFlow />} */}
+                {menuState === "authorizationFlow" && <AuthorizationFlow />}
 
             </div>
         </div>
