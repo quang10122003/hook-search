@@ -1,8 +1,19 @@
+import styles from "../../style/lineStyle.module.css";
 import { LinePropsType } from "@/types/LinePropsType";
-import styles from "../../style/lineStyle.module.css"
-export function Line({ children,active, done, id, customStyle,x1,x2,y1,y2}: LinePropsType) {
+export function Line({ children, id, customStyle, x1, x2, step, activeFrom, doneFrom }: LinePropsType) {
+
+    const isActive = step === activeFrom;
+    const isDone = step >= doneFrom;
+
+
+    const strokeColor = isDone? "#16a34a" : (isActive ? "#2563eb"  : "#9ca3af")
+
     return (
-        <svg width="100%" height="40" style={{ ...customStyle, overflow: "visible" }}>
+        <svg
+            width="100%"
+            height="40"
+            style={{ ...customStyle, overflow: "visible" }}
+        >
             <defs>
                 <marker
                     id={id}
@@ -12,26 +23,30 @@ export function Line({ children,active, done, id, customStyle,x1,x2,y1,y2}: Line
                     refY="5"
                     orient="auto"
                 >
-                    <path d="M0,0 L10,5 L0,10 Z" fill={done ? "green" : "gray"} />
+                    <path
+                        d="M0,0 L10,5 L0,10 Z"
+                        fill={strokeColor}
+                    />
                 </marker>
             </defs>
 
             <line
                 x1={x1}
-                y1={y1}
+                y1="10"
                 x2={x2}
-                y2={y2}
-                stroke={done ? "green" : "gray"}
+                y2="10"
+                stroke={strokeColor}
                 strokeWidth="2"
                 markerEnd={`url(#${id})`}
-                className={`${active ? styles.flow : ""}`}
-
+                className={isActive ? styles.flow : ""}
             />
+
             <text
                 x="50%"
                 y="24"
                 textAnchor="middle"
                 fontSize="13px"
+                fill="#374151"
             >
                 {children}
             </text>
