@@ -7,36 +7,26 @@ import {
     useReactTable,
 } from "@tanstack/react-table"
 
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import styles from "../style/data-table.module.css"
+import { useTranslations } from "next-intl"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
     setSelectHook: Dispatch<SetStateAction<TData | null>>
 }
-
-export function DataTable<TData, TValue>({
-    columns,
-    data,
-    setSelectHook,
-}: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data, setSelectHook }: DataTableProps<TData, TValue>) {
+    const t = useTranslations("SearchBox.DataTable")
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
     })
 
-function handleClick(hook: TData) {
-    setSelectHook(hook)
-}
+    function handleClick(hook: TData) {
+        setSelectHook(hook)
+    }
 
     return (
         <div className={styles.tableCard}>
@@ -81,7 +71,7 @@ function handleClick(hook: TData) {
                                 colSpan={columns.length}
                                 className={`${styles.bodyCell} ${styles.emptyCell}`}
                             >
-                                No results.
+                                    {t("nodata")}
                             </TableCell>
                         </TableRow>
                     )}

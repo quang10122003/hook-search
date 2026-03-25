@@ -1,3 +1,247 @@
 {
-    
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "Tab": {
+    "hookTab": "Hook",
+    "authenTab": "Authentication",
+    "contextMissing": "HookContext not found"
+  },
+  "Header": {
+    "header__title": "Search Hook"
+  },
+  "SearchBox": {
+    "Input": {
+      "placeholder": "Enter hook name"
+    },
+    "DataTable": {
+      "header": "Hook name",
+      "nodata": "No matching hook found"
+    }
+  },
+  "authen": {
+    "authorizationFlow": "Authorization flow",
+    "authencationFlow": "Authentication flow",
+    "Authorization": {
+      "title": "Authorization",
+      "conception": "Concept",
+      "conceptionDesc": "Authorization is a mechanism used to determine what actions a client (user or service) is allowed to perform after authentication.",
+      "tableTitle": "Common authorization models",
+      "tableHeadCell": [
+        "Model",
+        "Description",
+        "Advantages",
+        "Disadvantages"
+      ]
+    },
+    "Authentication": {
+      "title": "Authentication",
+      "conception": "Concept",
+      "conceptionDesc": "Authentication is a mechanism used to verify the identity of a client (user or service) before granting access.",
+      "tableTitle": "Common authentication methods",
+      "tableHeadCell": [
+        "Model",
+        "Description",
+        "Advantages",
+        "Disadvantages"
+      ]
+    }
+  },
+  "Data": {
+    "hooks": {
+      "useState": {
+        "desc": "Manage basic state in React and return [state, setState]"
+      },
+      "useEffect": {
+        "desc": "Run side effects on mount, unmount, or dependency changes"
+      },
+      "useContext": {
+        "desc": "Share global data without passing props through many layers"
+      },
+      "useRef": {
+        "desc": "Create a DOM reference or persist mutable values between renders"
+      },
+      "useMemo": {
+        "desc": "Optimize expensive calculations by memoizing values"
+      },
+      "useCallback": {
+        "desc": "Optimize function references to reduce unnecessary re-renders"
+      },
+      "useReducer": {
+        "desc": "Manage complex state transitions with a reducer"
+      },
+      "useLayoutEffect": {
+        "desc": "Run synchronously after DOM updates and before paint"
+      },
+      "useImperativeHandle": {
+        "desc": "Customize what a parent can access through ref"
+      },
+      "useId": {
+        "desc": "Generate stable unique IDs for accessibility"
+      }
+    },
+    "authentication": {
+      "password": {
+        "description": "User enters username and password",
+        "advantages": "Simple and easy to implement",
+        "disadvantages": "Weak passwords reduce security"
+      },
+      "jwt": {
+        "description": "Token-based authentication",
+        "advantages": "Stateless and scalable",
+        "disadvantages": "Hard to revoke immediately"
+      },
+      "session": {
+        "description": "Server stores user session",
+        "advantages": "Easy to manage and revoke",
+        "disadvantages": "Harder to scale under high load"
+      },
+      "oauth": {
+        "description": "Login via providers like Google/Facebook",
+        "advantages": "No additional password to remember",
+        "disadvantages": "Depends on third-party services"
+      },
+      "twoFa": {
+        "description": "Password plus one-time passcode",
+        "advantages": "Higher security",
+        "disadvantages": "Adds extra steps for users"
+      },
+      "biometric": {
+        "description": "Fingerprint or Face ID",
+        "advantages": "Convenient and secure",
+        "disadvantages": "Requires compatible hardware"
+      }
+    },
+    "authorization": {
+      "rbac": {
+        "description": "Role-Based Access Control",
+        "advantages": "Popular and easy to manage",
+        "disadvantages": "Less flexible in large systems"
+      },
+      "abac": {
+        "description": "Attribute-Based Access Control",
+        "advantages": "Highly flexible",
+        "disadvantages": "Complex to implement and maintain"
+      },
+      "acl": {
+        "description": "Access Control List per resource",
+        "advantages": "Fine-grained access control",
+        "disadvantages": "Hard to manage at scale"
+      },
+      "pbac": {
+        "description": "Policy-Based Access Control",
+        "advantages": "Centralized policy management",
+        "disadvantages": "Requires a policy engine"
+      },
+      "oauthScope": {
+        "description": "Authorization based on API scopes",
+        "advantages": "Well-suited for microservices",
+        "disadvantages": "Can be difficult with many scopes"
+      }
+    },
+    "authenticationFlow": {
+      "lines": {
+        "line1": "1) POST /login",
+        "line2": "2) Return token",
+        "line3": "3) GET /profile",
+        "line4": "4) Return data",
+        "line5": "5) POST /refresh",
+        "line6": "6) Return new access token"
+      },
+      "steps": {
+        "0": {
+          "user": "User",
+          "server": "Server waits for request"
+        },
+        "1": {
+          "user": "Send login request",
+          "server": "Waiting for request"
+        },
+        "2": {
+          "user": "Waiting for authentication",
+          "server": "Validate username/password"
+        },
+        "3": {
+          "user": "Waiting for token",
+          "server": "Create JWT"
+        },
+        "4": {
+          "user": "Receive token",
+          "server": "Token returned"
+        },
+        "5": {
+          "user": "Call protected API",
+          "server": "Waiting for API request"
+        },
+        "6": {
+          "user": "Waiting for data",
+          "server": "Verify JWT"
+        },
+        "7": {
+          "user": "Waiting for data",
+          "server": "Return data"
+        },
+        "8": {
+          "user": "Receive data",
+          "server": "Done"
+        },
+        "9": {
+          "user": "Token expired",
+          "server": "Waiting for refresh"
+        },
+        "10": {
+          "user": "Waiting for refresh",
+          "server": "Verify refresh token"
+        },
+        "11": {
+          "user": "Waiting for new token",
+          "server": "Return new token"
+        },
+        "12": {
+          "user": "Receive new token",
+          "server": "Done"
+        }
+      }
+    },
+    "authorizationFlow": {
+      "lines": {
+        "line1": "1) GET /api/data with Bearer accessToken",
+        "line2": "2) Return response to user"
+      },
+      "steps": {
+        "0": {
+          "user": "User",
+          "server": "Server waits for request"
+        },
+        "1": {
+          "user": "Request protected resource",
+          "server": "Waiting for request"
+        },
+        "2": {
+          "user": "Waiting for result",
+          "server": "1: Validate JWT (signature, expiration, payload)"
+        },
+        "3": {
+          "user": "Waiting for result",
+          "server": "2: Check user permissions (role)"
+        },
+        "4": {
+          "user": "Waiting for result",
+          "server": "3: Query DB for data"
+        },
+        "5": {
+          "user": "Waiting for result",
+          "server": "4: Build response"
+        },
+        "6": {
+          "user": "Waiting for result",
+          "server": "5: Return response to user"
+        },
+        "7": {
+          "user": "Receive response",
+          "server": "Response completed"
+        }
+      }
+    }
+  }
 }

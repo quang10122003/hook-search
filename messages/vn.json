@@ -1,5 +1,247 @@
 {
-    "HomePage": {
-        "title": "Hello world!"
+  "HomePage": {
+    "title": "Xin chào"
+  },
+  "Tab": {
+    "hookTab": "Hook",
+    "authenTab": "Xác thực",
+    "contextMissing": "Không tìm thấy HookContext"
+  },
+  "Header": {
+    "header__title": "Tìm kiếm Hook"
+  },
+  "SearchBox": {
+    "Input": {
+      "placeholder": "Nhập tên hook"
+    },
+    "DataTable": {
+      "header": "Tên hook",
+      "nodata": "Không tìm thấy hook phù hợp"
     }
+  },
+  "authen": {
+    "authorizationFlow": "Sơ đồ hoạt động authorization",
+    "authencationFlow": "Sơ đồ hoạt động authentication",
+    "Authorization": {
+      "title": "Authorization",
+      "conception": "Khái niệm",
+      "conceptionDesc": "Authorization là cơ chế trong hệ thống phần mềm dùng để xác định quyền truy cập của client sau khi đã xác thực. Nó trả lời câu hỏi: bạn được phép làm gì?",
+      "tableTitle": "Các mô hình authorization phổ biến",
+      "tableHeadCell": [
+        "Model",
+        "Mô tả",
+        "Ưu điểm",
+        "Nhược điểm"
+      ]
+    },
+    "Authentication": {
+      "title": "Authentication",
+      "conception": "Khái niệm",
+      "conceptionDesc": "Authentication là cơ chế xác minh danh tính của client trước khi cho phép truy cập tài nguyên. Nó trả lời câu hỏi: bạn là ai?",
+      "tableTitle": "Các kiểu authentication phổ biến",
+      "tableHeadCell": [
+        "Model",
+        "Mô tả",
+        "Ưu điểm",
+        "Nhược điểm"
+      ]
+    }
+  },
+  "Data": {
+    "hooks": {
+      "useState": {
+        "desc": "Quản lý state cơ bản trong React, trả về [state, setState]"
+      },
+      "useEffect": {
+        "desc": "Chạy callback khi mount, unmount hoặc khi dependency thay đổi"
+      },
+      "useContext": {
+        "desc": "Dùng để chia sẻ dữ liệu toàn cục mà không cần truyền props qua nhiều cấp"
+      },
+      "useRef": {
+        "desc": "Tạo tham chiếu đến DOM hoặc lưu giá trị giữa các lần render"
+      },
+      "useMemo": {
+        "desc": "Tối ưu bằng cách ghi nhớ kết quả tính toán nặng"
+      },
+      "useCallback": {
+        "desc": "Tối ưu function để tránh tạo mới không cần thiết"
+      },
+      "useReducer": {
+        "desc": "Quản lý state phức tạp bằng reducer"
+      },
+      "useLayoutEffect": {
+        "desc": "Chạy đồng bộ sau khi DOM cập nhật và trước khi vẽ lên màn hình"
+      },
+      "useImperativeHandle": {
+        "desc": "Tùy chỉnh API expose ra ngoài thông qua ref"
+      },
+      "useId": {
+        "desc": "Tạo id unique ổn định cho accessibility"
+      }
+    },
+    "authentication": {
+      "password": {
+        "description": "Người dùng nhập username và password",
+        "advantages": "Đơn giản, dễ triển khai",
+        "disadvantages": "Bảo mật thấp nếu mật khẩu yếu"
+      },
+      "jwt": {
+        "description": "Xác thực dựa trên token",
+        "advantages": "Không lưu session, dễ scale",
+        "disadvantages": "Khó thu hồi token ngay lập tức"
+      },
+      "session": {
+        "description": "Server lưu thông tin phiên đăng nhập",
+        "advantages": "Dễ quản lý và revoke",
+        "disadvantages": "Khó scale nếu tải cao"
+      },
+      "oauth": {
+        "description": "Đăng nhập qua Google/Facebook",
+        "advantages": "Không cần nhớ thêm mật khẩu",
+        "disadvantages": "Phụ thuộc bên thứ ba"
+      },
+      "twoFa": {
+        "description": "Mật khẩu kết hợp OTP",
+        "advantages": "Bảo mật cao",
+        "disadvantages": "Thêm bước cho người dùng"
+      },
+      "biometric": {
+        "description": "Vân tay hoặc nhận diện khuôn mặt",
+        "advantages": "Tiện lợi và an toàn",
+        "disadvantages": "Cần thiết bị hỗ trợ"
+      }
+    },
+    "authorization": {
+      "rbac": {
+        "description": "Phân quyền theo vai trò",
+        "advantages": "Phổ biến, dễ quản lý",
+        "disadvantages": "Kém linh hoạt khi hệ thống lớn"
+      },
+      "abac": {
+        "description": "Phân quyền theo thuộc tính",
+        "advantages": "Linh hoạt cao",
+        "disadvantages": "Khó triển khai và quản trị"
+      },
+      "acl": {
+        "description": "Danh sách quyền trên từng tài nguyên",
+        "advantages": "Chi tiết, kiểm soát sát",
+        "disadvantages": "Khó quản lý khi số lượng user lớn"
+      },
+      "pbac": {
+        "description": "Phân quyền dựa trên policy",
+        "advantages": "Quản lý tập trung",
+        "disadvantages": "Cần policy engine"
+      },
+      "oauthScope": {
+        "description": "Phân quyền theo scope API",
+        "advantages": "Phù hợp microservices",
+        "disadvantages": "Khó quản lý khi nhiều scope"
+      }
+    },
+    "authenticationFlow": {
+      "lines": {
+        "line1": "1) POST /login",
+        "line2": "2) Trả token",
+        "line3": "3) GET /profile",
+        "line4": "4) Trả data",
+        "line5": "5) POST /refresh",
+        "line6": "6) Trả access token mới"
+      },
+      "steps": {
+        "0": {
+          "user": "User",
+          "server": "Máy chủ chờ yêu cầu"
+        },
+        "1": {
+          "user": "Gửi login",
+          "server": "Chờ request"
+        },
+        "2": {
+          "user": "Đợi xác thực",
+          "server": "Xác thực username/password"
+        },
+        "3": {
+          "user": "Đợi token",
+          "server": "Tạo JWT"
+        },
+        "4": {
+          "user": "Nhận token",
+          "server": "Đã trả token"
+        },
+        "5": {
+          "user": "Gọi API",
+          "server": "Chờ API"
+        },
+        "6": {
+          "user": "Đợi data",
+          "server": "Verify JWT"
+        },
+        "7": {
+          "user": "Đợi data",
+          "server": "Trả data"
+        },
+        "8": {
+          "user": "Nhận data",
+          "server": "Hoàn tất"
+        },
+        "9": {
+          "user": "Token hết hạn",
+          "server": "Chờ refresh"
+        },
+        "10": {
+          "user": "Đợi refresh",
+          "server": "Verify refresh token"
+        },
+        "11": {
+          "user": "Đợi token mới",
+          "server": "Trả token mới"
+        },
+        "12": {
+          "user": "Nhận token mới",
+          "server": "Hoàn tất"
+        }
+      }
+    },
+    "authorizationFlow": {
+      "lines": {
+        "line1": "1) GET /api/data Authorization: kèm Bearer accessToken",
+        "line2": "2) Gửi response về cho user"
+      },
+      "steps": {
+        "0": {
+          "user": "User",
+          "server": "Máy chủ chờ yêu cầu"
+        },
+        "1": {
+          "user": "Gửi yêu cầu truy cập tài nguyên",
+          "server": "Máy chủ chờ yêu cầu"
+        },
+        "2": {
+          "user": "Đang đợi kết quả",
+          "server": "1: Kiểm tra JWT (chữ ký, hạn, payload)"
+        },
+        "3": {
+          "user": "Đang đợi kết quả",
+          "server": "2: Kiểm tra quyền của user (role)"
+        },
+        "4": {
+          "user": "Đang đợi kết quả",
+          "server": "3: Truy vấn DB lấy dữ liệu"
+        },
+        "5": {
+          "user": "Đang đợi kết quả",
+          "server": "4: Tạo response"
+        },
+        "6": {
+          "user": "Đang đợi kết quả",
+          "server": "5: Trả response cho user"
+        },
+        "7": {
+          "user": "Nhận response",
+          "server": "Hoàn thành response"
+        }
+      }
+    }
+  }
 }

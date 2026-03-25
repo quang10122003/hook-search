@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 import { lineOfAuthentication } from "@/data/data";
 import { Step_ContentOfAuthentication } from "@/data/data";
 import { TOTAL_STEPS_OF_AUTHENCATION } from "@/data/data";
+import { useTranslations } from "next-intl";
 export default function AuthenticationFlow() {
     const [step, setStep] = useState(0);
     const [play, setPlay] = useState(false);
+    const t = useTranslations();
 
     useEffect(() => {
         if (!play) return;
@@ -39,7 +41,7 @@ export default function AuthenticationFlow() {
         <>
             <div className={styles.boxflow}>
                 <Box stepActive={isUserActive}>
-                    {currentContent.user}
+                    {t(currentContent.user)}
                 </Box>
 
                 <div className={styles.boxflow__lines}>
@@ -53,13 +55,13 @@ export default function AuthenticationFlow() {
                             activeFrom={line.activeFrom}
                             doneFrom={line.doneFrom}
                         >
-                            {line.label}
+                            {t(line.label)}
                         </Line>
                     ))}
                 </div>
 
                 <Box stepActive={isServerActive}>
-                    {currentContent.server}
+                    {t(currentContent.server)}
                 </Box>
             </div>
 

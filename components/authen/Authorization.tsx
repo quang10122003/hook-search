@@ -1,23 +1,29 @@
+import { useTranslations } from "next-intl"
 import styles from "../../style/authorization.module.css"
 import { authorization } from "@/data/data"
 export default function Authorization() {
-
+    const t = useTranslations("authen.Authorization")
+    const tData = useTranslations()
     return (
         <div className={styles.authorization}>
-            <h1 className={styles.authorization__title}>Authencation</h1>
+            <h1 className={styles.authorization__title}>{t("title")}</h1>
             <span className={styles.authorization__desc}>
-                <strong>Khái niệm:</strong> Authorization là cơ chế trong hệ thống phần mềm dùng để xác định quyền truy cập của client (user hoặc service) sau khi đã được xác thực. Nó đơn giản trả lời cho câu hỏi: bạn được phép làm gì?
+                <strong>{t("conception")}:</strong> {t("conceptionDesc")}
             </span>
 
-            <strong className={styles.authorization__tableTitle}>Các loại xác thực authorization thường gặp:</strong>
+            <strong className={styles.authorization__tableTitle}>{t("tableTitle")}:</strong>
 
             <table className={styles.authorization__table}>
                 <thead className={styles.authorization__tableHead}>
                     <tr>
-                        <th className={styles.authorization__tableHeadCell}>Model</th>
-                        <th className={styles.authorization__tableHeadCell}>Description</th>
-                        <th className={styles.authorization__tableHeadCell}>Advantages</th>
-                        <th className={styles.authorization__tableHeadCell}>Disadvantages</th>
+                        {(t.raw("tableHeadCell") as string[]).map((item) => (
+                            <th
+                                key={item}
+                                className={styles.authorization__tableHeadCell}
+                            >
+                                {item}
+                            </th>
+                        ))}
                     </tr>
                 </thead>
 
@@ -25,9 +31,9 @@ export default function Authorization() {
                     {authorization.map((item, index) => (
                         <tr key={index}>
                             <td className={styles.authorization__tableCell}>{item.model}</td>
-                            <td className={styles.authorization__tableCell}>{item.description}</td>
-                            <td className={styles.authorization__tableCell}>{item.advantages}</td>
-                            <td className={styles.authorization__tableCell}>{item.disadvantages}</td>
+                            <td className={styles.authorization__tableCell}>{tData(item.description)}</td>
+                            <td className={styles.authorization__tableCell}>{tData(item.advantages)}</td>
+                            <td className={styles.authorization__tableCell}>{tData(item.disadvantages)}</td>
                         </tr>
                     ))}
                 </tbody>
