@@ -243,5 +243,11 @@
         }
       }
     }
+  },
+  "LanguageSwitcher":{
+    "languageSwitcher__label":"Ngôn ngữ",
+    "languageSwitcher__option":"tiếng việt" ,
+    "languageSwitcher__option2":"tiếng anh"
   }
+
 }
