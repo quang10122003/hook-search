@@ -1,5 +1,5 @@
 "use client"
-import type { Dispatch, SetStateAction } from "react"
+import type { HookType } from "@/types/HookType"
 import {
     ColumnDef,
     flexRender,
@@ -10,13 +10,15 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import styles from "../style/data-table.module.css"
 import { useTranslations } from "next-intl"
+import { AppDispatch } from "@/app/store"
+import { setSelectHook } from "@/features/hookSlice"
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData extends HookType, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
-    setSelectHook: Dispatch<SetStateAction<TData | null>>
+    dispatch: AppDispatch
 }
-export function DataTable<TData, TValue>({ columns, data, setSelectHook }: DataTableProps<TData, TValue>) {
+export function DataTable<TData extends HookType, TValue>({ columns, data, dispatch }: DataTableProps<TData, TValue>) {
     const t = useTranslations("SearchBox.DataTable")
     const table = useReactTable({
         data,
@@ -25,7 +27,7 @@ export function DataTable<TData, TValue>({ columns, data, setSelectHook }: DataT
     })
 
     function handleClick(hook: TData) {
-        setSelectHook(hook)
+        dispatch(setSelectHook(hook))
     }
 
     return (

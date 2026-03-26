@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 import { HookType } from "./HookType";
+import { AppDispatch } from "@/app/store";
 
 export interface InputHookType{
     search:string,
-    setSearch: Dispatch<SetStateAction<string>>
-    setSelectHook: Dispatch<SetStateAction<HookType | null>>
+    dispatch: AppDispatch
 }

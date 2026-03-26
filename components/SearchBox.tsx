@@ -7,14 +7,15 @@ import {useColumns}  from "./columns"
 import { filterHooks } from "@/app/action"
 import { InputHookType } from "@/types/InputHookType"
 import { useTranslations } from "next-intl"
+import { setSearch, setSelectHook } from "@/features/hookSlice"
 
-export default function InputHook({ search, setSearch, setSelectHook }: InputHookType) {
+export default function InputHook({ search, dispatch }: InputHookType) {
   const filteredHooks = filterHooks(search)
   const t = useTranslations("SearchBox")
   const columns = useColumns();
   function searchaAction(e: ChangeEvent<HTMLInputElement>) {
-    setSearch(e.target.value)
-    setSelectHook(null)
+    dispatch(setSearch(e.target.value))
+    dispatch(setSelectHook(null))
   }
 
   return (
@@ -28,7 +29,7 @@ export default function InputHook({ search, setSearch, setSelectHook }: InputHoo
         />
       </div>
       <div className={styles.listHook}>
-        <DataTable setSelectHook={setSelectHook} columns={columns} data={filteredHooks} />
+        <DataTable dispatch={dispatch} columns={columns} data={filteredHooks} />
       </div>
     </>
 

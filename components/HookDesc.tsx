@@ -1,10 +1,11 @@
 import { HookDescType } from "@/types/HookDescType"
 import styles from "../style/HookDesc.module.css"
 import { useTranslations } from "next-intl"
+import { useAppSelector } from "@/hook"
 
-export default function HookDesc({ selectHook }: HookDescType) {
+export default function HookDesc({ dispatch }: HookDescType) {
   const t = useTranslations()
-
+  const selectHook = useAppSelector(state=>state.hook.selectHook)
   if (!selectHook) {
     return <div />
   }
