@@ -9,6 +9,7 @@ import styles from "../style/tab.module.css"
 import AuthenLayout from "./authen/AuthLayout"
 import { useTranslations } from "next-intl"
 import { useAppDispatch, useAppSelector } from "@/hook"
+import ReduxLayout from "./redux/ReduxLayout"
 
 export function Tab() {
     const t = useTranslations("Tab")
@@ -22,6 +23,9 @@ export function Tab() {
                 </TabsTrigger>
                 <TabsTrigger style={{ fontSize: "16px" }} value="authen">
                     {t("authenTab")}
+                </TabsTrigger>
+                <TabsTrigger style={{ fontSize: "16px" }} value="reudux">
+                    redux
                 </TabsTrigger>
             </TabsList>
 
@@ -39,6 +43,13 @@ export function Tab() {
                 <Card className={styles.tab__card}>
                     <CardContent className={styles["tab__card-content"]}>
                         <AuthenLayout />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+            <TabsContent className={styles.tab__content} value="reudux">
+                <Card className={styles.tab__card}>
+                    <CardContent className={styles["tab__card-content"]}>
+                        <ReduxLayout/>
                     </CardContent>
                 </Card>
             </TabsContent>
